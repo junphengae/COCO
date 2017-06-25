@@ -1,0 +1,317 @@
+@CHARSET "UTF-8";
+
+
+.txt_box {
+	font-family: "Trebuchet MS", "Helvetica", "Arial",  "Verdana", "sans-serif";
+	font-size: 12px;
+	color: #111;
+	background-color: #f5f5f5;
+	border: 1px solid #6F6F6F;
+}
+
+.txt_box:focus {
+	border: 1px dotted #6F6F6F;
+}
+
+.txt_show {
+	font-family: "Trebuchet MS", "Helvetica", "Arial",  "Verdana", "sans-serif";
+	color: #111;
+	border: none;
+	background: none;
+}
+
+/****------------- Button --------------*****/
+
+.btn_back {
+	margin-top: 2px;
+	margin-right: 8px;
+	width: 22px;
+	height: 22px;
+	cursor: pointer;
+	background-image: url('../images/btn_backward.png');
+	background-repeat: no-repeat;
+}
+
+.btn_add {
+	padding: 3px 7px 3px 20px !important;
+	background-image: url("../images/icon/btn_add.png");
+	background-repeat: no-repeat;
+	background-position: 4px center;
+	cursor: pointer;
+}
+
+.btn_printer {
+	padding: 3px 7px 3px 25px !important;
+	background-image: url("../images/icon/b_print.png");
+	background-repeat: no-repeat;
+	background-position: 4px center;
+	cursor: pointer;
+}
+
+.btn_del {
+	padding: 3px 7px 3px 20px !important;
+	background-image: url("../images/icon/btn_del.png");
+	background-repeat: no-repeat;
+	background-position: 4px center;
+	cursor: pointer;
+}
+
+.btn_box {
+	text-align: center;
+	font-family: Tahoma, AngsanaUPC;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 3px 7px 3px 7px;
+	color: #000;
+	cursor: pointer;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 4px;
+	border-left-width: 0px;
+	border-right-width: 0px;
+	background-color:#bbb;
+	border-color:#666666;
+	border-style:solid;
+	border-width:1px;
+}
+
+.btn_box:hover {
+	background-color:#0078A3;
+	border-color:#59B4D4;
+	border-style:solid;
+	border-width:1px;
+}
+
+
+
+
+.btn_confirm{
+color: #393939;
+background: #e6f0a3;
+background: -moz-linear-gradient(top, #e6f0a3 0%, #d2e638 50%, #c3d825 51%, #dbf043 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e6f0a3), color-stop(50%,#d2e638), color-stop(51%,#c3d825), color-stop(100%,#dbf043));
+background: -webkit-linear-gradient(top, #e6f0a3 0%,#d2e638 50%,#c3d825 51%,#dbf043 100%);
+background: -o-linear-gradient(top, #e6f0a3 0%,#d2e638 50%,#c3d825 51%,#dbf043 100%);
+background: -ms-linear-gradient(top, #e6f0a3 0%,#d2e638 50%,#c3d825 51%,#dbf043 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6f0a3', endColorstr='#dbf043',GradientType=0 );
+background: linear-gradient(top, #e6f0a3 0%,#d2e638 50%,#c3d825 51%,#dbf043 100%);
+}
+.btn_confirm:hover{
+color: #111;
+background: #dce59c;
+background: -moz-linear-gradient(top, #dce59c 0%, #c7dd37 50%, #aec423 51%, #c8db3d 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#dce59c), color-stop(50%,#c7dd37), color-stop(51%,#aec423), color-stop(100%,#c8db3d));
+background: -webkit-linear-gradient(top, #dce59c 0%,#c7dd37 50%,#aec423 51%,#c8db3d 100%);
+background: -o-linear-gradient(top, #dce59c 0%,#c7dd37 50%,#aec423 51%,#c8db3d 100%);
+background: -ms-linear-gradient(top, #dce59c 0%,#c7dd37 50%,#aec423 51%,#c8db3d 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dce59c', endColorstr='#c8db3d',GradientType=0 );
+background: linear-gradient(top, #dce59c 0%,#c7dd37 50%,#aec423 51%,#c8db3d 100%);
+border-color: #333;
+}
+
+.btn_warn{
+	color: #eaeaea;
+	background: #ff3019; /* Old browsers */
+	background: -moz-linear-gradient(top, #ff3019 0%, #cf0404 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff3019), color-stop(100%,#cf0404)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #ff3019 0%,#cf0404 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #ff3019 0%,#cf0404 100%); /* Opera11.10+ */
+	background: -ms-linear-gradient(top, #ff3019 0%,#cf0404 100%); /* IE10+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff3019', endColorstr='#cf0404',GradientType=0 ); /* IE6-9 */
+	background: linear-gradient(top, #ff3019 0%,#cf0404 100%); /* W3C */
+}
+.btn_warn:hover{
+	color: #fff; border-color:#777;
+	background: #ff5949; /* Old browsers */
+	background: -moz-linear-gradient(top, #ff5949 0%, #cf0404 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff5949), color-stop(100%,#cf0404)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #ff5949 0%,#cf0404 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #ff5949 0%,#cf0404 100%); /* Opera11.10+ */
+	background: -ms-linear-gradient(top, #ff5949 0%,#cf0404 100%); /* IE10+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FF5949', endColorstr='#cf0404',GradientType=0 ); /* IE6-9 */
+	background: linear-gradient(top, #ff5949 0%,#cf0404 100%); /* W3C */
+}
+
+.btn_search{
+	padding: 3px 7px 3px 20px !important;
+	background-image: url("../images/icon/search.png");
+	background-repeat: no-repeat;
+	background-position: 4px center;
+}
+
+.btn_view{
+	display: inline-block;
+	background: url("../images/icon/search.png") no-repeat;
+	margin: 0px 3px;
+	width: 16px;
+	height: 16px;
+	border: none;
+	cursor: pointer;
+}
+
+.btn_viewlist{
+	display: inline-block;
+	background: url("../images/icon/s_tbl.png") no-repeat;
+	margin: 0px 3px;
+	width: 16px;
+	height: 16px;
+	border: none;
+	cursor: pointer;
+}
+
+.btn_del2{
+	display: inline-block;
+	background: url("../images/icon/btn_del.png") no-repeat;
+	margin: 0px 3px;
+	width: 16px;
+	height: 16px;
+	border: none;
+	cursor: pointer;
+}
+
+.btn_upload{
+	display: inline-block;
+	background: url("../images/icon/upload.png") no-repeat;
+	margin: 0px 3px;
+	width: 16px;
+	height: 16px;
+	border: none;
+	cursor: pointer;
+}
+
+.btn_download{
+	display: inline-block;
+	background: url("../images/icon/download.png") no-repeat;
+	margin: 0px 3px;
+	width: 16px;
+	height: 16px;
+	border: none;
+	cursor: pointer;
+}
+
+.btn_update{
+	display: inline-block;
+	background: url("../images/icon/b_edit.png") no-repeat;
+	margin: 0px 3px;
+	width: 16px;
+	height: 16px;
+	border: none;
+	cursor: pointer;
+}
+.btn_save{
+	display: inline-block;
+	background: url("../images/save.png") no-repeat;
+	margin: 0px 3px;
+	width: 16px;
+	height: 16px;
+	border: none;
+	cursor: pointer;
+}
+
+.btn_card{
+	display: inline-block;
+	background: url("../images/icon/s_rights.png") no-repeat;
+	margin: 0px 3px;
+	width: 16px;
+	height: 16px;
+	border: none;
+	cursor: pointer;
+}
+
+.btn_accept{
+	display: inline-block;
+	background: url("../images/icon/accept-icon.png") no-repeat;
+	margin: 0px 3px;
+	width: 16px;
+	height: 16px;
+	border: none;
+	cursor: pointer;
+}
+
+.btn_repair{
+	display: inline-block;
+	background: url("../images/icon/b_tblops.png") no-repeat;
+	margin: 0px 3px;
+	width: 16px;
+	height: 16px;
+	border: none;
+	cursor: pointer;
+}
+
+.btn_reload{
+	display: inline-block;
+	background: url("../images/icon/s_reload.png") no-repeat;
+	margin: 0px 3px;
+	width: 16px;
+	height: 16px;
+	border: none;
+	cursor: pointer;
+}
+
+.btn_close{
+	display: inline-block;
+	background: url("../images/icon/close.png") no-repeat;
+	margin: 0px 3px;
+	width: 16px;
+	height: 16px;
+	border: none;
+	cursor: pointer; 
+}
+
+.btn_export{
+	display: inline-block;
+	background: url("../images/icon/b_tblimport.png") no-repeat;
+	margin: 0px 3px;
+	width: 16px;
+	height: 16px;
+	border: none;
+	cursor: pointer;
+}
+
+.btn_import{
+	display: inline-block;
+	background: url("../images/icon/b_tblexport.png") no-repeat;
+	margin: 0px 3px;
+	width: 16px;
+	height: 16px;
+	border: none;
+	cursor: pointer;
+}
+
+.btn_bin{
+	display: inline-block;
+	background: url("../images/icon/bin.png") no-repeat;
+	margin: 0px 3px;
+	width: 16px;
+	height: 16px;
+	border: none;
+	cursor: pointer;
+}
+
+.btn_report{
+	display: inline-block;
+	background: url("../images/icon/b_sql.png") no-repeat;
+	margin: 0px 3px;
+	width: 16px;
+	height: 16px;
+	border: none;
+	cursor: pointer;
+}
+.btn_select_ss{
+	display: inline-block;
+	background: url("../images/icon/b_snewtbl.png") no-repeat;
+	margin: 0px 3px;
+	width: 16px;
+	height: 16px;
+	border: none;
+	cursor: pointer;
+}
+.btn_restatus{
+	display: inline-block;
+	background: url("../images/icon/refresh.png") no-repeat;
+	 margin: 0px 3px;
+	width: 16px;
+	height: 16px;
+	border: none;
+	cursor: pointer; 
+}

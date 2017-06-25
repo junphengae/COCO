@@ -1,0 +1,24 @@
+body{
+	margin:0;
+	padding:0;
+}
+
+.barcode {
+    height: 99px;
+    width: 192px;
+    border: 1px #fff solid;
+}
+
+.barcode .discription {
+	width: 185px;
+	margin-top: 12px;
+	/*text-align: center;*/
+	margin-left: 7px;
+	font-size: 11px;
+	font-weight: normal;
+	color: #000;
+}
+
+.barcode .barcode_img { margin: 0 auto; text-align: center; }
+
+.barcode .info{text-align: center;font-size: 12px;font-weight: normal;color: #000;}

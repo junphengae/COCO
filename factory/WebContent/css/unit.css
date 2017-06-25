@@ -1,0 +1,39 @@
+.wrap_all{
+	margin: 0 auto;
+	width: 992px;
+}
+/*================== Head =====================*/
+.wrap_header{
+	margin: 0 auto;
+	width: auto;
+	height: 100px;
+}
+	.wrap_logo{float: left; width: 153px; height: 72px; margin-top: 10px;}
+	.wrap_menu{float: right; width: 835px;}
+		.wrap_menu .head_info_left{float: left; font-size: 22px; font-weight: bold; color: #247A09; margin-top: 20px; margin-left: 5px;}
+		.wrap_menu .head_info_right{float: right; font-size: 14px; font-weight: bold; color: #6F6F6F; margin-top: 28px;}
+		.wrap_menu .head_line{float: right; padding: 2px 0px; width: 100%; height: 1px; margin: 3px 0px; background-color: #14A79D;}
+		.wrap_menu .head_menu_left{float: left; margin-left: 5px;}
+			.head_menu_left a{font-size: 14px; padding: 0px 3px;} 
+		.wrap_menu .head_menu_right{float: right; margin-right: 5px;}
+
+
+/*================== Body =====================*/
+.wrap_body{margin: 0 auto; width: auto;}
+	.body_content{width: auto; background-color: #14A79D; padding: 5px 5px 10px 5px; -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px;}
+		.content_head{margin: 0 auto; width: 100%; height: 35px; padding: 5px 0px 0px 10px;}
+			a.tab_head{font-size: 14px;}
+		.content_body{margin: 0 auto; padding: 10px; background-color: #7BCBC0; color: #000; width: 95%; -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px;}
+			.content_body div{margin-bottom: 3px;}
+		.wrap_desc{font-size: 12px; margin: 5px 15px;}
+
+/*================== Foot =====================*/
+.wrap_footer{bottom: 0; position: fixed; width: 992px; height:22px; margin: 0 auto;}
+	.footer_left{float: left; width: 45%;}
+	.footer_right{float: right; width: auto; text-align: right; padding: 2px 8px;}
+	#bmp{ margin-top: 16px; background-color: #D5C451;}
+	#bmp a{color: #fff;}
+	
+	
+	
+	

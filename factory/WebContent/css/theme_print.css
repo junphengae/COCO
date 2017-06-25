@@ -1,0 +1,36 @@
+@CHARSET "UTF-8";
+/** A4
+	width: 2480 px
+	height: 3508 px
+ **/
+body {
+	background-color: #fff;
+	color: #000;
+	padding: 5px 5px 5px 10px;
+	font-family: "Cordia New";
+	font-size: 18px;
+}
+
+.wrap_print {
+	margin: 0 auto;
+	width: 735px;
+	height: 1000px;
+	padding: 5px;
+}
+
+.tb{border-collapse: collapse;}
+.tb tr, .tb td, .tb th{border: 1px solid #000;border-top: 1px solid #000; border-bottom: 1px solid #000;}
+.tb td{padding: 1px 3px;}
+
+.fset_print {
+	margin: 0 auto;
+	padding: 0px 5px 5px 10px;
+	background-color: #fff;
+	border: 1px solid #111;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+
+.fset_print legend { color: #000;background-color: #fff; }
+.fset_print div { margin-bottom: -3px; }
