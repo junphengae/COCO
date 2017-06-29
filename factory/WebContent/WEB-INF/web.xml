@@ -345,4 +345,14 @@
     <servlet-name>STOServlet</servlet-name>
     <url-pattern>/STOServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>InvPackServlet</display-name>
+    <servlet-name>InvPackServlet</servlet-name>
+    <servlet-class>com.coco.inv.pack.InvPackServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>InvPackServlet</servlet-name>
+    <url-pattern>/InvPackServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

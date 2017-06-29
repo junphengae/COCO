@@ -5,6 +5,7 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/resources"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/purchase"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/inv_stk"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/inv"/>
         <property name="java-output-path" value="/factory/build/classes"/>
         <property name="context-root" value="factory"/>
     </wb-module>
