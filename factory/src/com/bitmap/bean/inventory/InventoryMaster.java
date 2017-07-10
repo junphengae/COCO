@@ -86,6 +86,12 @@ public class InventoryMaster {
 		conn.close();
 	}
 	
+	public static List<String[]> listDropdown() throws SQLException{
+		Connection conn = DBPool.getConnection();
+		List<String[]> list = DBUtility.getDropDownList(conn, tableName, "mat_code", new String[]{"mat_code","description"}, "mat_code");
+		conn.close();
+		return list;
+	}
 	
 	public static InventoryMaster select(String mat_code) throws IllegalArgumentException, SQLException, IllegalAccessException, InvocationTargetException{
 		InventoryMaster entity = new InventoryMaster();

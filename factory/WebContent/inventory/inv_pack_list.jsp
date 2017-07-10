@@ -1,3 +1,5 @@
+<%@page import="com.coco.inv.pack.InvPackTS"%>
+<%@page import="com.coco.inv.pack.InvPackBean"%>
 <%@page import="com.bitmap.bean.sale.Customer"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="com.bitmap.webutils.WebUtils"%>
@@ -25,7 +27,7 @@
 <jsp:useBean id="securProfile" class="com.bitmap.security.SecurityProfile" scope="session"></jsp:useBean>
 <%@ taglib uri="/WEB-INF/lib/customtag.tld" prefix="bmp" %>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>ข้อมูลลูกค้า</title>
+<title>ข้อมูล หน่วยนับอื่นๆ</title>
 <%
 String cus_name = WebUtils.getReqString(request, "cus_name");
 
@@ -40,7 +42,7 @@ if(page_.length() > 0){
 }
 session.setAttribute("CUS_SEARCH", paramList);
 
-Iterator cusIte = Customer.selectWithCTRL(ctrl, paramList).iterator();
+Iterator ite = InvPackTS.selectWithCTRL(ctrl, paramList).iterator();
 %>
 </head>
 <body>
@@ -51,9 +53,9 @@ Iterator cusIte = Customer.selectWithCTRL(ctrl, paramList).iterator();
 	<div class="wrap_body">
 		<div class="body_content">
 			<div class="content_head">
-				<div class="left">คลังสินค้า |ตารางรายการหน่วยนับ</div>
+				<div class="left">คลังสินค้า |ตารางรายการหน่วยนับอื่นๆ</div>
 				<div class="right m_right10">
-					<button class="btn_box btn_confirm thickbox" lang="../info/customer_new.jsp?height=450&width=520" title="เพิ่มรายการ">เพิ่มรายการ</button>
+					<button class="btn_box btn_confirm thickbox" lang="../info/pack_oth_new.jsp?height=350&width=520" title="เพิ่มรายการ">เพิ่มรายการ</button>
 				</div>
 				<div class="clear"></div>
 			</div>
@@ -69,7 +71,7 @@ Iterator cusIte = Customer.selectWithCTRL(ctrl, paramList).iterator();
 				
 				<div class="dot_line m_top5"></div>
 				
-				<div class="right txt_center"><%=PageControl.navigator_en(ctrl,"customer_list.jsp",paramList)%></div>
+				<div class="right txt_center"><%=PageControl.navigator_en(ctrl,"inv_pack_list.jsp",paramList)%></div>
 				<div class="clear"></div>
 				
 				<table class="bg-image s900 m_top5">
@@ -77,25 +79,25 @@ Iterator cusIte = Customer.selectWithCTRL(ctrl, paramList).iterator();
 						<tr>
 							<th width="15%" align="left">รหัสสินค้า</th>
 							<th width="30%" align="center">Description</th>
-							<th width="15%" align="center">หน่วยนับ</th>
+							<th width="15%" align="center">หน่วยนับอื่น</th>
 							<th width="15%" align="center">Factor</th>		
 							<th width="15%" align="center">หน่วยนับหลัก</th>		
 							<th width="15%" align="center">&nbsp;</th>
 						</tr>
 					</thead>
 					<%
-					while(cusIte.hasNext()){ 
-						Customer cus = (Customer) cusIte.next();
+					while(ite.hasNext()){ 
+						InvPackBean invP = (InvPackBean) ite.next();
 					%>
 					<tbody>
 						<tr>
-							<td align="left"><div class="thickbox pointer" title="ข้อมูลลูกค้า" lang="../info/customer_info.jsp?cus_id=<%=cus.getCus_id()%>&height=400&width=520"><%=cus.getCus_name()%></div></td>
-							<td><%=cus.getCus_contact()%></td>
-							<td align="center"><%=cus.getCus_phone()%></td>
-							<td align="center"><%=Customer.ship(cus.getCus_ship())%></td>
-							<td align="center"><%=Customer.ship(cus.getCus_ship())%></td>
+							<td align="left"><div class="thickbox pointer" title="ข้อมูลลูกค้า" lang="../info/pack_oth_info.jsp?mat_code=<%=invP.getMat_code()%>&factor=<%=invP.getFactor()%>&height=400&width=520"><%=invP.getMat_code()%></div></td>							
+							<td align="center"><%=invP.getDescription()%></td>
+							<td align="center"><%=invP.getOther_unit()%></td>
+							<td align="center"><%=invP.getFactor()%></td>
+							<td align="center"><%=invP.getMain_unit()%></td>
 							<td align="center">
-								<button class="btn_box thickbox" lang="../info/customer_edit.jsp?cus_id=<%=cus.getCus_id()%>&height=450&width=520" title="แก้ไขข้อมูลลูกค้า">แก้ไข</button>
+								<button class="btn_box thickbox" lang="../info/pack_oth_edit.jsp?mat_code=<%=invP.getMat_code()%>&factor=<%=invP.getFactor()%>&height=450&width=520" title="แก้ไขข้อมูลลูกค้า">แก้ไข</button>
 							</td>
 						</tr>
 					</tbody>
