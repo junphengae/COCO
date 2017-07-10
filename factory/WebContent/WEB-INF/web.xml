@@ -353,6 +353,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>InvPackServlet</servlet-name>
-    <url-pattern>/InvPackServlet</url-pattern>
+    <url-pattern>/InvPackServlet</url-pattern>    
+    <url-pattern>/inventory/InvPackServlet</url-pattern>
   </servlet-mapping>
 </web-app>

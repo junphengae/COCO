@@ -13,8 +13,12 @@ public class InvPackBean {
 
 	private String mat_code  = "";
 	private String description  = "";
-	private String unit_des  = "";
+	private String other_unit  = "";	
 	private String factor  = "";
+	private String main_unit = "";
+	private String std_unit  = "";	
+	private String des_unit  = "";
+	private String unit_pack = "";	
 	private Timestamp create_date  = null;
 	private String create_by  = "";
 	private Timestamp update_date  =  null;
@@ -32,17 +36,41 @@ public class InvPackBean {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public String getUnit_des() {
-		return unit_des;
+	public String getOther_unit() {
+		return other_unit;
 	}
-	public void setUnit_des(String unit_des) {
-		this.unit_des = unit_des;
+	public void setOther_unit(String other_unit) {
+		this.other_unit = other_unit;
 	}
 	public String getFactor() {
 		return factor;
 	}
 	public void setFactor(String factor) {
 		this.factor = factor;
+	}
+	public String getMain_unit() {
+		return main_unit;
+	}
+	public void setMain_unit(String main_unit) {
+		this.main_unit = main_unit;
+	}
+	public String getStd_unit() {
+		return std_unit;
+	}
+	public void setStd_unit(String std_unit) {
+		this.std_unit = std_unit;
+	}
+	public String getDes_unit() {
+		return des_unit;
+	}
+	public void setDes_unit(String des_unit) {
+		this.des_unit = des_unit;
+	}
+	public String getUnit_pack() {
+		return unit_pack;
+	}
+	public void setUnit_pack(String unit_pack) {
+		this.unit_pack = unit_pack;
 	}
 	public Timestamp getCreate_date() {
 		return create_date;
@@ -68,6 +96,8 @@ public class InvPackBean {
 	public void setUpdate_by(String update_by) {
 		this.update_by = update_by;
 	}
+	
+	
 	
 	
 	
