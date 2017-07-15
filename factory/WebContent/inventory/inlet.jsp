@@ -218,9 +218,11 @@ function check_material(){
 				var mat = resData.material;
 				$('#bbf_date').val(mat.bbf);
 				
-				if(mat.group_id == 'SS'){
+				/* if(mat.group_id == 'SS'){
 					window.location='inlet_ss.jsp?mat_code=' + mat.mat_code;
-				}else if (mat.group_id == 'FG') {
+				}else  */
+					
+					if (mat.group_id == 'FG' || mat.group_id == 'SS') {
 					tb_check_mat.hide();
 					td_mat_code.append(mat.mat_code);
 					td_mat_description.append(mat.description);
@@ -245,10 +247,7 @@ function check_material(){
 						tb_input_product.show();
 						$('#product_form #po').focus();
 					} 
-// 					else {
-// 						tb_input_invoice.show();
-// 						$('#invoice_form #po').focus();
-// 					}
+
 				}else{
 					alert("ไม่สามารถรับเข้าสินค้าประเภท " + mat.group_id + " จากการผลิตได้ ");
 					window.location='inlet.jsp';
@@ -342,92 +341,9 @@ function check_material(){
 				</table>
 				
 				<div class="m_top15"></div>
-				<input type="hidden" id="group_id" value="">
-				
+				<input type="hidden" id="group_id" value="">				
 <!-- ****************   invoice_form ********************** -->
 
-				<%-- <form id="invoice_form" onsubmit="return false">
-					<table width="100%" id="tb_input_invoice" class="hide">
-						<tbody>
-							<tr>
-								<td width="25%">เลขที่ใบสั่งซื้อ</td>
-								<td width="75%">: 
-									<input type="text" class="txt_box required" name="po" id="po" autocomplete="off" title="ระบุเลขที่ใบสั่งซื้อ!">
-									<button class="btn_box" id="btn_invoice_qty_show">ต่อไป</button>
-								</td>
-							</tr>
-						</tbody>
-					</table>
-					<table width="100%" class="hide" id="tb_invoice_detail">
-						<tbody>
-							<tr>
-								<td width="25%">เลขที่ใบแจ้งหนี้</td>
-								<td width="75%">: <input type="text" class="txt_box required" name="invoice" autocomplete="off" title="ระบุเเลขที่ใบแจ้งหนี้!"></td>
-							</tr>
-							<tr>
-								<td>จำนวน</td>
-								<td>: <input type="text" class="txt_box required digits" name="lot_qty" id="lot_qty" autocomplete="off" title="ระบุเจำนวน!"> <%=master.getStd_unit() %></td>
-							</tr>
-							<tr><td colspan="2" height="20"></td></tr>
-							<tr>
-								<td valign="top">ราคาต่อหน่วย</td>
-								<td valign="top">: 
-									<input type="radio" name="p" id="is_price" checked="checked"> <label for="is_price">ระบุราคา</label> 
-									<input type="radio" name="p" id="non_price"> <label for="non_price">ยังไม่ระบุ</label> <br>
-									&nbsp;&nbsp;<input type="text" class="txt_box required" name="lot_price" id="lot_price" autocomplete="off" title="ระบุเราคา!">
-									<script type="text/javascript">
-									$(function(){
-										$('#is_price').click(function(){
-											if ($(this).is(':checked')) {
-												$('#lot_price').val('').attr('readonly',false);
-											}
-										});
-										
-										$('#non_price').click(function(){
-											if ($(this).is(':checked')) {
-												$('#lot_price').val('ไม่ระบุ').attr('readonly',true);
-											}
-										});
-									});
-									</script>
-								</td>
-							</tr>
-							<tr><td colspan="2" height="20"></td></tr>
-							<tr>
-								<td>ตัวแทนจำหน่าย</td>
-								<td>: 
-									<bmp:ComboBox name="vendor_id" styleClass="txt_box s200" validate="true" validateTxt="เลือกตัวแทนจำหน่าย!" listData="<%=Vendor.selectList()%>">
-										<bmp:option value="" text="--- select ---"></bmp:option>
-									</bmp:ComboBox>
-								</td>
-							</tr>
-							<tr>
-								<td>รหัสสินค้าของตัวแทน</td>
-								<td>: <input type="text" name="vendor_mat_code" class="txt_box" autocomplete="off"></td>
-							</tr>
-							<tr>
-								<td>เลขที่ Lot สินค้าของตัวแทน</td>
-								<td>: <input type="text" name="vendor_lot_no" class="txt_box" autocomplete="off"></td>
-							</tr>
-							<tr>
-								<td>วันหมดอายุ</td>
-								<td>: <input type="text" name="lot_expire" id="lot_expire" class="txt_box" autocomplete="off"></td>
-							</tr>
-							<tr>
-								<td>หมายเหตุ</td>
-								<td>: <input type="text" class="txt_box" name="note" autocomplete="off"></td>
-							</tr>
-							<tr>
-								<td colspan="2" align="center" height="30">
-									<input type="submit" name="add" class="btn_box" value="รับเข้า">
-									<input type="hidden" name="action" value="inlet">
-									<input type="hidden" name="create_by" value="<%=securProfile.getPersonal().getPer_id()%>">
-									<input type="hidden" name="mat_code" id="invoice_mat_code" value="">
-								</td>
-							</tr>
-						</tbody>
-					</table>
-				</form> --%>
 
 <!-- ****************   product_form ********************** -->
 
