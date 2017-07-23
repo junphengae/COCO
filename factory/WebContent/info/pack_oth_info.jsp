@@ -14,11 +14,11 @@
 <%@ taglib uri="/WEB-INF/lib/customtag.tld" prefix="bmp" %>
 <%
 	String mat_code = request.getParameter("mat_code"); 
-	String factor = request.getParameter("factor"); 
+	String pack_id = request.getParameter("pack_id"); 
 	
 	InvPackBean entity = new InvPackBean();
 	entity.setMat_code(mat_code);
-	entity.setFactor(factor);
+	entity.setPack_id(pack_id);
 	
 	entity = InvPackTS.select(entity);
 	

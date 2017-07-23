@@ -25,24 +25,61 @@ import com.bmp.vendor.VendorBean;
 public class InvPackTS {
 
 	public static String tableName = "inv_pack";
-	private static String[] keys = {"mat_code","factor",};
+	private static String[] keys = {"mat_code","pack_id",};
 	private static String[] fieldNames = {"description","other_unit","other_unit","factor" ,"main_unit","std_unit" ,"des_unit" ,"unit_pack","update_by","update_date"};
 	
 	public static void insert(InvPackBean entity) throws IllegalAccessException, InvocationTargetException, SQLException{
 		Connection conn = DBPool.getConnection();		
+		
+		entity.setPack_id(genId(conn , entity.getMat_code()));
 		entity.setCreate_date(DBUtility.getDBCurrentDateTime());
+		
 		DBUtility.insertToDB(conn, tableName, entity);
 		conn.close();
 	}
-
 	
-	public static boolean delete(InvPackBean entity) {
+	private static String genId(Connection conn, String mat_code) throws SQLException {
+		String sql = "SELECT max(pack_id) as id  FROM " + tableName + " where mat_code = '"+mat_code+"' ORDER BY pack_id DESC";
+		ResultSet rs = conn.createStatement().executeQuery(sql);
+		String pack_id = "1";		
+		if (rs.next()) {
+			String temp = rs.getString("id")==null?"0":rs.getString("id");			
+			String id = (Integer.parseInt(temp) + 1) + "";			 
+			if(!temp.equalsIgnoreCase("0")){
+				pack_id = id;
+			}						
+		}
+		rs.close();
+		return pack_id;
+	}
+	
+	public static boolean delete(InvPackBean entity) throws SQLException, IllegalAccessException, InvocationTargetException {
+		Connection conn = DBPool.getConnection();	
+		boolean pk = checkActive(conn ,entity.getMat_code());
+		if(!pk){
+			DBUtility.deleteFromDB(conn, tableName, entity, keys);
+		}		
+		conn.close();
+		return pk;
+	}
+
+	private static boolean checkActive(Connection conn, String mat_code) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-	public static void update(InvPackBean entity) {
-		// TODO Auto-generated method stub
+
+	public static void update(InvPackBean entity) throws Exception {
+		Connection conn = DBPool.getConnection();	
+		try {
+			entity.setUpdate_date(DBUtility.getDBCurrentDateTime());
+			DBUtility.updateToDB(conn, tableName, entity, fieldNames, keys);
+			
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}finally{
+			conn.close();	
+		}
 		
 	}
 
