@@ -21,11 +21,16 @@
 <script type="text/javascript" src="../js/ui/jquery.ui.widget.js"></script>
 <script type="text/javascript" src="../js/ui/jquery.ui.datepicker.js"></script>
 
+<script type="text/javascript" src="../js/bootstrap-datetimepicker.min.js"></script>
+<link href="../css/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css" media="all">
 
 <link href="../css/style.css" rel="stylesheet" type="text/css" media="all">
 <link href="../css/unit.css" rel="stylesheet" type="text/css" media="all">
 <link href="../css/loading.css" rel="stylesheet" type="text/css" media="all">
 <link href="../themes/vbi-theme/jquery.ui.all.css" rel="stylesheet" type="text/css">
+
+
+
 
 <%@ taglib uri="/WEB-INF/lib/customtag.tld" prefix="bmp" %>
 <jsp:useBean id="securProfile" class="com.bitmap.security.SecurityProfile" scope="session"></jsp:useBean>
@@ -65,7 +70,12 @@ $(function(){
 		changeMonth : true,
 		yearRange: 'c-5:c+10'
 	});
+			
 	
+	
+	  $('#back_date').datetimepicker({
+	      language: 'pt-BR'
+	    });
 	
 	$.metadata.setType("attr", "validate");
 	check_material();
@@ -452,6 +462,10 @@ function check_material(){
 							<tr>
 								<td>หมายเหตุ</td>
 								<td>: <input type="text" class="txt_box" name="note" autocomplete="off"></td>
+							</tr>
+							<tr>
+								<td>วันที่รับเข้า</td>
+								<td>: <input type="text" name="back_date" id="back_date" data-format="dd/MM/yyyy hh:mm:ss" class="txt_box" autocomplete="off"></td>
 							</tr>
 							<tr>
 								<td colspan="2" align="center" height="30">

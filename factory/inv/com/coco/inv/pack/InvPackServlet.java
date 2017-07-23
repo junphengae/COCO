@@ -49,7 +49,7 @@ public class InvPackServlet extends ServletUtils {
 					
 					InvPackBean entity = new InvPackBean();
 					WebUtils.bindReqToEntity(entity, rr.req);					
-								
+					entity.setUpdate_by(entity.getCreate_by());								
 					InvPackTS.update(entity);
 					
 					kson.setSuccess();

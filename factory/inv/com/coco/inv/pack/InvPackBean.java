@@ -12,6 +12,7 @@ import java.sql.Timestamp;
 public class InvPackBean {
 
 	private String mat_code  = "";
+	private String pack_id = "";
 	private String description  = "";
 	private String other_unit  = "";	
 	private String factor  = "";
@@ -23,12 +24,17 @@ public class InvPackBean {
 	private String create_by  = "";
 	private Timestamp update_date  =  null;
 	private String update_by  = "";
-	
 	public String getMat_code() {
 		return mat_code;
 	}
 	public void setMat_code(String mat_code) {
 		this.mat_code = mat_code;
+	}
+	public String getPack_id() {
+		return pack_id;
+	}
+	public void setPack_id(String pack_id) {
+		this.pack_id = pack_id;
 	}
 	public String getDescription() {
 		return description;
@@ -96,6 +102,7 @@ public class InvPackBean {
 	public void setUpdate_by(String update_by) {
 		this.update_by = update_by;
 	}
+	
 	
 	
 	

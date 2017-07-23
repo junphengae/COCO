@@ -11,32 +11,31 @@
 <%@ taglib uri="/WEB-INF/lib/customtag.tld" prefix="bmp" %>
 <%
 	String mat_code = request.getParameter("mat_code"); 
-	String factor = request.getParameter("factor"); 
+	String pack_id = request.getParameter("pack_id"); 
 	
 	InvPackBean entity = new InvPackBean();
 	entity.setMat_code(mat_code);
-	entity.setFactor(factor);
+	entity.setPack_id(pack_id);
 	
 	entity = InvPackTS.select(entity);
 	
 %>
 <script type="text/javascript">
-	$(function(){
-		
-		var $form = $('#cusEditForm');
-
+	$(function(){		
+		var $form = $('#packOthEditForm');
+			
 		var v = $form.validate({
 			submitHandler: function(){
 				ajax_load();
-				var addData = $form.serialize();
-				$.post('CustomerManage',addData,function(data){
-					ajax_remove();
-					if (data.status == 'success') {
-						window.location.reload();
-					} else {
-						alert(data.message);
-					}
-				},'json');
+				var addData = $form.serialize();				
+					$.post('./InvPackServlet',addData,function(data){
+						ajax_remove();
+						if (data.status == 'success') {
+							window.location.reload();
+						} else {
+							alert(data.message);
+						}
+					},'json');
 			}
 		});
 		
@@ -46,7 +45,7 @@
 		});
 		
 		$('#province_id').change(function(){
-			form_load($('#cusEditForm'));
+			form_load($('#packOthEditForm'));
 				$.post('SaleManage',{'action':'get_zip','province_id':$(this).val()},function(resData){
 					form_remove();
 					if (resData.status == 'success') {	
@@ -68,10 +67,11 @@
 <div>
 	<form id="packOthEditForm" onsubmit="return false;">
 	<input type="hidden" name="create_by" id="create_by" value="<%=securProfile.getPersonal().getPer_id()%>">
-	<input type="hidden" name="mat_code_hit" id="mat_code_hit" >
-	<input type="hidden" name="std_unit" id="std_unit" >
-	<input type="hidden" name="des_unit" id="des_unit" >
-	<input type="hidden" name="unit_pack" id="unit_pack" >
+	<input type="hidden" name="mat_code" id="mat_code" value="<%=entity.getMat_code()%>">
+	<input type="hidden" name="pack_id" id="pack_id" value="<%=entity.getPack_id()%>">
+	<input type="hidden" name="std_unit" id="std_unit" value="<%=entity.getStd_unit()%>">
+	<input type="hidden" name="des_unit" id="des_unit" value="<%=entity.getDes_unit()%>">
+	<input type="hidden" name="unit_pack" id="unit_pack" value="<%=entity.getUnit_pack()%>">
 	<table cellpadding="3" cellspacing="3" border="0" style="margin: 0 auto;" width="485px">
 		<tbody>
 			<tr align="center" height="25"><td colspan="2"><h3>เพิ่มข้อมูลหน่วยนับอื่นๆ</h3></td></tr>
