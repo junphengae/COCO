@@ -29,10 +29,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>ข้อมูล หน่วยนับอื่นๆ</title>
 <%
-String cus_name = WebUtils.getReqString(request, "cus_name");
+String mat_code = WebUtils.getReqString(request, "mat_code");
 
 List paramList = new ArrayList();
-paramList.add(new String[]{"cus_name",cus_name});
+paramList.add(new String[]{"mat_code",mat_code});
 
 String page_ = WebUtils.getReqString(request, "page");
 PageControl ctrl = new PageControl();
@@ -63,7 +63,7 @@ Iterator ite = InvPackTS.selectWithCTRL(ctrl, paramList).iterator();
 			<div class="content_body">
 				<div class="detail_wrap s800 center txt_center">
 					<form style="margin: 0; padding: 0;" action="inv_pack_list.jsp" method="get">
-						ค้นหาจากรหัสสินค้า: <input type="text" name="mat_code" id="mat_code" value="<%=cus_name%>" class="txt_box s200" autocomplete="off"> 
+						ค้นหาจากรหัสสินค้า: <input type="text" name="mat_code" id="mat_code" value="<%=mat_code%>" class="txt_box s200" autocomplete="off"> 
 						<button type="submit" name="btn_search" class="btn_box btn_confirm">ค้นหา</button>
 						<button type="button" name="btn_reset" id="btn_reset" class="btn_box" onclick="$('#mat_code').val('');">ล้าง</button>
 					</form>
@@ -91,13 +91,13 @@ Iterator ite = InvPackTS.selectWithCTRL(ctrl, paramList).iterator();
 					%>
 					<tbody>
 						<tr>
-							<td align="left"><div class="thickbox pointer" title="ข้อมูลลูกค้า" lang="../info/pack_oth_info.jsp?mat_code=<%=invP.getMat_code()%>&factor=<%=invP.getFactor()%>&height=400&width=520"><%=invP.getMat_code()%></div></td>							
+							<td align="left"><div class="thickbox pointer" title="ข้อมูลลูกค้า" lang="../info/pack_oth_info.jsp?mat_code=<%=invP.getMat_code()%>&pack_id=<%=invP.getPack_id()%>&height=400&width=520"><%=invP.getMat_code()%></div></td>							
 							<td align="center"><%=invP.getDescription()%></td>
 							<td align="center"><%=invP.getOther_unit()%></td>
 							<td align="center"><%=invP.getFactor()%></td>
 							<td align="center"><%=invP.getMain_unit()%></td>
 							<td align="center">
-								<button class="btn_box thickbox" lang="../info/pack_oth_edit.jsp?mat_code=<%=invP.getMat_code()%>&factor=<%=invP.getFactor()%>&height=450&width=520" title="แก้ไขข้อมูลลูกค้า">แก้ไข</button>
+								<button class="btn_box thickbox" lang="../info/pack_oth_edit.jsp?mat_code=<%=invP.getMat_code()%>&pack_id=<%=invP.getPack_id()%>&height=450&width=520" title="แก้ไขข้อมูลลูกค้า">แก้ไข</button>
 							</td>
 						</tr>
 					</tbody>
