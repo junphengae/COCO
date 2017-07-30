@@ -26,9 +26,7 @@
 <title>Edit Material</title>
 <script type="text/javascript">
 $(function(){
-	
-	$('#description').val('<%=MAT.getDescription()%>');
-	
+		
 	$('#group_id').change(function(){
 		ajax_load();
 		$.post('GetCat',{group_id: $(this).val(),action:'get_cat_th'}, function(resData){
@@ -228,10 +226,9 @@ $(function(){
 								<td>รหัสสินค้า</td>
 								<td>: <%=MAT.getMat_code()%><input type="hidden" name="mat_code" value="<%=MAT.getMat_code()%>"></td>
 							</tr>
-							<tr>
-							
+							<tr>						
 								<td>ชื่อสินค้า</td>
-								<td>: <input type="text" autocomplete="off" name="description" id="description" class="txt_box s300 required" title="ระบุชื่อสินค้า!" ></td>
+								<td>: <input type="text" autocomplete="off" name="description" id="description" class="txt_box s300 required" title="ระบุชื่อสินค้า!" value="<%= MAT.getDescription().replaceAll("'", "\'").replaceAll("\"", "&quot;")%>"></td>
 							</tr>
 							<tr>
 								<td colspan="2">
