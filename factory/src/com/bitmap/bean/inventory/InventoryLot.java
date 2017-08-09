@@ -477,7 +477,7 @@ public static List<InventoryLot> selectActiveList(String mat_code) throws Unsupp
 	
 	public static void insert(InventoryLot entity) throws IllegalAccessException, InvocationTargetException, SQLException, UnsupportedEncodingException{
 		Connection conn = DBPool.getConnection();
-		entity.setCreate_date(DBUtility.getDBCurrentDateTime());
+		//entity.setCreate_date(DBUtility.getDBCurrentDateTime());
 		entity.setLot_no(genLotNo(entity, conn));
 		entity.setLot_status("A");
 		DBUtility.insertToDB(conn, tableName, entity);
@@ -486,6 +486,7 @@ public static List<InventoryLot> selectActiveList(String mat_code) throws Unsupp
 		InventoryMaster master = new InventoryMaster();
 		master.setMat_code(entity.getMat_code());
 		master.setBalance(InventoryLot.selectActiveSum(entity.getMat_code(), conn));
+		master.setCreate_date(entity.getCreate_date());
 		InventoryMaster.updateBalance(master, conn);
 		conn.close();
 	}

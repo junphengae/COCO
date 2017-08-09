@@ -1,3 +1,4 @@
+<%@page import="com.coco.inv.pack.InvPackTS"%>
 <%@page import="com.bitmap.bean.inventory.InventoryMaster"%>
 <%@page import="com.bitmap.bean.inventory.Vendor"%>
 <%@page import="com.bitmap.webutils.WebUtils"%>
@@ -9,7 +10,7 @@
 <html>
 <head>
 
-<script src="../js/jquery.min.js"></script>
+<script src="../js/jquery.min.js"></script> 
 <script src="../js/thickbox.js"></script>
 <script src="../js/loading.js"></script>
 <script src="../js/jquery.metadata.js"></script>
@@ -20,9 +21,6 @@
 <script type="text/javascript" src="../js/ui/jquery.ui.core.js"></script>
 <script type="text/javascript" src="../js/ui/jquery.ui.widget.js"></script>
 <script type="text/javascript" src="../js/ui/jquery.ui.datepicker.js"></script>
-
-<script type="text/javascript" src="../js/bootstrap-datetimepicker.min.js"></script>
-<link href="../css/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css" media="all">
 
 <link href="../css/style.css" rel="stylesheet" type="text/css" media="all">
 <link href="../css/unit.css" rel="stylesheet" type="text/css" media="all">
@@ -73,16 +71,32 @@ $(function(){
 			
 	
 	
-	  $('#back_date').datetimepicker({
-	      language: 'pt-BR'
+	  $('#back_date').datepicker({
+		    showOtherMonths : true,
+			slectOtherMonths : true,
+			changeYear : true,
+			changeMonth : true,
+			minDate: '-3',
+			yearRange: 'c-5:c+10'
 	    });
-	
+	 	
+	  $('.back_time').hide();	 
+	  $('#back_date').change(function(){		 
+		 if ($(this).val() != "" ) {
+			 $('.back_time').show();
+		 }else {
+			$('.back_time').hide();
+			$('.back_time').val("");
+		 }		  
+	  });
+	  
+	  
 	$.metadata.setType("attr", "validate");
 	check_material();
 	
 	var invoice_form = $('#invoice_form');
 	var invoice_validate = invoice_form.validate({
-		submitHandler: function(){
+		submitHandler: function(){								
 			if (confirm('ยืนยันการนำเข้าสินค้า หมายเลข ' + $('#invoice_mat_code').val() + '\n\rจำนวน ' + $('#invoice_form #lot_qty').val() + ' เข้าสู่คลังสินค้า\n\r\n\r** คุณจะไม่สามารถแก้ไขข้อมูลการนำเข้าได้หลังจากกดตกลง **')) {
 				ajax_load();
 				$.post('InletManagement',invoice_form.serialize(),function(resData){
@@ -168,6 +182,7 @@ $(function(){
 	});
 });
 
+	
 function check_material(){
 	var tb_check_mat = $('#tb_check_mat');
 	
@@ -465,7 +480,10 @@ function check_material(){
 							</tr>
 							<tr>
 								<td>วันที่รับเข้า</td>
-								<td>: <input type="text" name="back_date" id="back_date" data-format="dd/MM/yyyy hh:mm:ss" class="txt_box" autocomplete="off"></td>
+								<td>: <input type="text" name="back_date" id="back_date"  class="txt_box" autocomplete="off">						
+									<bmp:ComboBox name="back_time"  styleClass="txt_box s100 back_time" listData="<%=InvPackTS.getTimeComboList()%>"></bmp:ComboBox>
+										
+								</td>
 							</tr>
 							<tr>
 								<td colspan="2" align="center" height="30">

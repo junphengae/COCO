@@ -6,12 +6,15 @@ package com.coco.inv.pack;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.InvocationTargetException;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
+import javax.naming.NamingException;
 
 import com.bitmap.dbconnection.mysql.vbi.DBPool;
 import com.bitmap.dbutils.DBUtility;
@@ -135,4 +138,20 @@ public class InvPackTS {
 		return list;
 	}
 
+	public static List<String[]> getTimeComboList() throws NamingException, SQLException{
+		List<String[]> list = new ArrayList<String[]>();		
+		for (int i = 0; i < 24 ; i++) {			
+			for (int j = 0; j < 60 ; j++) {
+				String HH = String.valueOf(i);
+				String MI = String.valueOf(j);
+				HH = HH.length()==1?"0"+HH:HH;
+				MI = MI.length()==1?"0"+MI:MI;
+				String time = HH+":"+MI+":00";				
+				String[] vals = {time,time};
+				//System.out.println(" <option value= \""+HH+":"+MI+":00\">"+HH+":"+MI+":00</option>");
+				list.add(vals);
+			}
+		}	  
+		return list;
+	}
 }

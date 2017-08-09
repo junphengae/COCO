@@ -1123,7 +1123,7 @@ public class Production {
 						}
 						//System.out.println("inlet:" + volumn);
 						//System.out.println("less:" + lost95);
-						pro.setUpdate_date(DBUtility.getDBCurrentDateTime());
+						//pro.setUpdate_date(DBUtility.getDBCurrentDateTime());
 						pro.setUpdate_by(update_by);
 						DBUtility.updateToDB(conn, tableName, pro,new String[] {"status","update_date","update_by"},new String[] {"pro_id"});		
 					}else{
@@ -1139,7 +1139,7 @@ public class Production {
 							}else{
 								pro.setStatus(Production.STATUS_FINNISH);
 							}
-							pro.setUpdate_date(DBUtility.getDBCurrentDateTime());
+							//pro.setUpdate_date(DBUtility.getDBCurrentDateTime());
 							pro.setUpdate_by(update_by);
 							DBUtility.updateToDB(conn, tableName, pro,new String[] {"status","update_date","update_by"},new String[] {"pro_id"});				
 						}	

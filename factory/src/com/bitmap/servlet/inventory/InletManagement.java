@@ -1,11 +1,14 @@
 package com.bitmap.servlet.inventory;
 
+import java.sql.Timestamp;
+
 import javax.servlet.ServletException;
 
 import com.bitmap.bean.inventory.InventoryLot;
 import com.bitmap.bean.inventory.InventoryMaster;
 import com.bitmap.bean.production.Production;
 import com.bitmap.bean.util.DateUtils;
+import com.bitmap.dbutils.DBUtility;
 import com.bitmap.webutils.ReqRes;
 import com.bitmap.webutils.ServletUtils;
 import com.bitmap.webutils.WebUtils;
@@ -84,7 +87,19 @@ public class InletManagement extends ServletUtils {
 				if (checkAction(rr, "inlet_non_invoice")) {
 					InventoryLot entity = new InventoryLot();
 					WebUtils.bindReqToEntity(entity, rr.req);
-					
+					 
+					String back_date = getParam(rr, "back_date");
+					String back_time = getParam(rr, "back_time");
+					Timestamp back_date_time = null;
+					//System.out.println("Action:inlet_non_invoice "+ entity.getCreate_date());
+					//System.out.println("back_date "+ back_date +" "+back_time);
+					if(back_date.equalsIgnoreCase("")){
+						back_date_time = DBUtility.getDBCurrentDateTime();
+					}else {
+						back_date_time = DBUtility.getDBDateTime( WebUtils.getTimeStamp(back_date +" "+back_time).getTime());
+					}
+					 
+					entity.setCreate_date(back_date_time);
 					entity.setLot_qty(Double.toString(Double.parseDouble(entity.getLot_qty())));
 					InventoryLot.insert(entity);
 					
@@ -92,6 +107,7 @@ public class InletManagement extends ServletUtils {
 					pro.setItem_id(entity.getMat_code());
 					pro.setPro_id(entity.getPo());
 					pro.setUpdate_by(entity.getCreate_by());
+					pro.setUpdate_date(back_date_time);
 					Production.InletPD(pro,entity.getLot_qty());
 					
 					kson.setSuccess();

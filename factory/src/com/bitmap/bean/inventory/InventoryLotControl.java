@@ -80,6 +80,7 @@ public class InventoryLotControl {
 		entity.setLot_balance(lot.getLot_qty());
 		entity.setLot_id("1");
 		entity.setControl_status("A");
+		entity.setCreate_date(lot.getCreate_date());
 		DBUtility.insertToDB(conn, tableName, new String[]{"lot_no","lot_id","lot_balance","control_status","create_date"}, entity);
 	}
 	
